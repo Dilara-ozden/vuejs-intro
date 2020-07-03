@@ -1,0 +1,52 @@
+
+ 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dilara Ödev</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>JavaScript Toplama İşlemi</h1>
+        <form name="toplam">
+            <label>1. Sayı : </label>
+            <input type="text" id="sayi1"><br><br>
+            <label>2. Sayı : </label>
+            <input type="text" id="sayi2"><br><br>
+            <input type="button" onclick="myFunction2()" id="btnTopla" value="TOPLA">
+        </form>
+        <br>
+        
+        <input type="button" onclick="myFunction()" id="btnGizleGos" value="Geçmişi Gizle">
+        <div id="kutuToplam"><ul id="liste"></ul></div>
+        <script>
+            const kutu=document.querySelector("#liste");
+            const btn=document.getElementById("btnTopla");
+            var sayac=0;
+            function myFunction2() {
+                const s1=Number(document.getElementById("sayi1").value);
+                const s2=Number(document.getElementById("sayi2").value);
+                const toplam=s1+s2;
+                
+                const eleman=document.createElement("li");
+                sayac++;
+                var a = sayac;
+                eleman.innerText=a+".islemde "+s1+" ve "+s2+" toplandı.Sonuç"+toplam;
+                kutu.appendChild(eleman); 
+                
+            }
+            function myFunction() {
+                const x = document.getElementById("btnGizleGos");
+                const y = document.getElementById("kutuToplam");
+            if (x.value === "Geçmişi Gizle") {
+                y.style.display = "none";
+                x.value= "Geçmişi Göster"
+            } else if (x.value === "Geçmişi Göster"){
+                y.style.display = "block";
+                x.value= "Geçmişi Gizle"
+                }
+            }
+        </script>
+
+    </body>
+</html>
